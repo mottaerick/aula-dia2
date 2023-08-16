@@ -12,6 +12,12 @@ export function ListaTarefas() {
     setText('');
   }
 
+  function Remover(value: string) {
+    const listaAtualizada = lista.filter((x) => x != value);
+    setLista(listaAtualizada);
+  }
+const listaExibicao = lista
+
   return (
     <>
       <div>Lista</div>
@@ -22,6 +28,7 @@ export function ListaTarefas() {
           return (
             <li>
               <Like> {item}</Like>
+              <button onClick={() => Remover(item)}>x</button>
             </li>
           );
         })}
