@@ -1,23 +1,31 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
+import { Like } from './Like';
 
-export interface LikeProps {
-  children: ReactNode;
-}
+export function ListaTarefas() {
+  const [lista, setLista] = useState(['Banana', 'Maça', 'Sorvete']);
 
-export function Like({ children }: LikeProps) {
-  const [isLiked, setIsLiked] = useState(false);
+  const [text, setText] = useState('');
 
-  function AlterarLike() {
-    setIsLiked(!isLiked);
+  function Adicionar() {
+    const listaAdicionada = [...lista, text];
+    setLista(listaAdicionada);
+    setText('');
   }
 
   return (
-    <div>
-      <button onClick={AlterarLike}>
-        {isLiked ? <span>❤️</span> : <span>🤍</span>}
-        {isLiked ? 'Unlike' : 'Like'}
-      </button>
-      {children}
-    </div>
+    <>
+      <div>Lista</div>
+      <input onChange={(e) => setText(e.target.value)} />
+      <button onClick={Adicionar}>Adicionar</button>
+      <ul>
+        {lista.map((item) => {
+          return (
+            <li>
+              <Like> {item}</Like>
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 }
