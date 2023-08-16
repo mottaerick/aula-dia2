@@ -16,8 +16,11 @@ export function ListaTarefas() {
     const listaAtualizada = lista.filter((x) => x != value);
     setLista(listaAtualizada);
   }
-const listaExibicao = lista
 
+  let listaExibicao = lista;
+  if (text != '') {
+    const listaExibicao = lista.filter((x) => x.startswith(text));
+  }
   return (
     <>
       <div>Lista</div>
