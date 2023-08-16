@@ -1,13 +1,14 @@
 import Head from 'next/head';
-import { Contador } from '../components/contador';
+import { Contador } from '../components/Contador';
 import styles from '../styles/Home.module.css';
+import { Like } from '../components/Like';
 
 export default function Home() {
   return (
     <div className={styles.container}>
-      <h1>Olá turmna</h1>
-      <Contador valorInicial= {0} />
-      <Contador valorInicial= {0} />
+      Olá turma!
+      <Contador valorInicial={1} />
+      <Contador valorInicial={10} />
     </div>
   );
 }
